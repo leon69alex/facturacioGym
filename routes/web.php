@@ -36,7 +36,7 @@ $faker->addProvider(new Faker\Provider\Lorem($faker));
 $faker->addProvider(new Faker\Provider\Internet($faker));
 $faker->addProvider(new Faker\Provider\Payment($faker));
 
-for($i = 0; $i < 100; $i++) {
+for($i = 0; $i < 1000; $i++) {
 
     $name = $faker->firstName;
     App\Client::create([
@@ -44,7 +44,7 @@ for($i = 0; $i < 100; $i++) {
         'surnames' => $faker->lastName,
         'email' => $name.'@'.$faker->freeEmailDomain,
         'dni' => $faker->dni,
-        'cuote_id' => rand(1, 6),
+        'cuote_id' => 1,
         'numCompte' => $faker->iban('ES'),
     ]);
 } */

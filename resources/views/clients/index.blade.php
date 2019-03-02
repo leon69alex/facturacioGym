@@ -13,9 +13,10 @@
     @endif
 
     <div class="d-flex justify-content-between">
-        <div>
-            <input type="text" class="form-control" id="search" name="search">
-        </div>
+        <div class="form-group has-search">
+            <span class="fa fa-search form-control-feedback"></span>
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
         <div>
             <a class="btn btn-success" href="{{ route('clients.create') }}">+ Nou Client</a>
         </div>
@@ -43,7 +44,12 @@
                     <td>{{ $client->dni }}</td>
                     <td>{{ $client->cuote->display_name }}</td>
                     <td>{{ $client->numCompte }}</td>
-                    <td><input type="checkbox" value="{{ $client->active }}" name="active" {{ $client->active ? 'checked' : '' }}></td>
+                    <td>      
+                        <span class="switch">
+                            <input type="checkbox" class="switch" id="switch-id" value="{{ $client->active }}" name="active" {{ $client->active ? 'checked' : '' }}/>
+                            <label for="switch-id"></label>
+                        </span>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
