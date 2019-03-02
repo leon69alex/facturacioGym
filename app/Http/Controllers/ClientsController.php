@@ -105,4 +105,42 @@ class ClientsController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        if($request->ajax())
+        {
+            $output = "";
+
+            $clients = Client::where('name', 'LIKE', '%'.$request->search.'%')->get();
+
+            if($clients)
+            {
+                foreach( $clients as $key => $client){
+                    $output.='<tr>'.
+                        '<td>'.$client->id.'</td>'.
+                        '<td>'.$client->name.'</td>'.
+                        '<td>'.$client->surnames.'</td>'.
+                        '<td>'.$client->email.'</td>'.
+                        '<td>'.$client->dni.'</td>'.
+                        '<td>'.$client->cuote->display_name.'</td>'.
+                        '<td>'.$client->numCompte.'</td>'.
+                        //'<td>'.$client->active.'</td>'.
+                        '<td><input type="checkbox" value="'.$client->active.'"';
+                    
+                    if($client->active)
+                    {
+                        $output.=' checked';
+                    }
+                    
+                    $output.='></td></tr>';
+
+                    //dd($output);
+
+                }
+                
+            }
+            return Response($output);
+        }
+    }
 }

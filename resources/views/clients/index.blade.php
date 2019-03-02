@@ -11,8 +11,16 @@
         </div>
         
     @endif
-    <a class="btn btn-success" href="{{ route('clients.create') }}">+ Nou Client</a>
-    <br>
+
+    <div class="d-flex justify-content-between">
+        <div>
+            <input type="text" class="form-control" id="search" name="search">
+        </div>
+        <div>
+            <a class="btn btn-success" href="{{ route('clients.create') }}">+ Nou Client</a>
+        </div>
+    </div>
+
     <br>
     <table class="table table-dark">
         <thead>
@@ -41,4 +49,24 @@
         </tbody>
         
     </table>
+
+    <script type="text/javascript">
+        $('#search').on('keyup',function(){
+            console.log("hola");
+            $value=$(this).val();
+            $.ajax({
+                type : 'get',
+                url : '{{URL::to('search')}}',
+                data:{'search':$value},
+                success:function(data){
+                    //console.log(data);
+                    $('tbody').html(data);
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
+    </script>
+
 @stop
