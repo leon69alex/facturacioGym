@@ -23,7 +23,7 @@
     </div>
 
     <br>
-    <table class="table table-dark" id="dataTable">
+    <table class="table table-dark">
         <thead>
             <th>ID</th>
             <th>Nom</th>
@@ -73,11 +73,6 @@
     </script>
     <script type="text/javascript">
         $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
-    </script>
-    <script>
-        $(document).ready( function () {
-            $('#dataTable').DataTable();
-        } );
     </script>
 
 @stop

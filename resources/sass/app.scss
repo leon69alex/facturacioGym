@@ -11,10 +11,6 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-//DataTables
-@import url('http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.min.css');
-
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -135,9 +131,7 @@
   margin-left: 1rem;
 }
 
-table.dataTable tbody tr {
-  background-color: inherit;
-}
+
 
 
 /* Styles for wrapping the search box */
