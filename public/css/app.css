@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://use.fontawesome.com/releases/v5.7.2/css/all.css);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://use.fontawesome.com/releases/v5.7.2/css/all.css);@import url(http://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css);@import url(https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.min.css);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10799,6 +10799,10 @@ a.text-dark:focus {
 
 .switch + .switch {
   margin-left: 1rem;
+}
+
+table.dataTable tbody tr {
+  background-color: inherit;
 }
 
 /* Styles for wrapping the search box */
