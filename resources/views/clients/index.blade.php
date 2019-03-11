@@ -15,7 +15,7 @@
     <div class="d-flex justify-content-between">
         <div class="form-group has-search">
             <span class="fa fa-search form-control-feedback"></span>
-            <input type="text" class="form-control" placeholder="Search">
+            <input type="text" id="search" class="form-control" placeholder="Search">
           </div>
         <div>
             <a class="btn btn-success" href="{{ route('clients.create') }}">+ Nou Client</a>
@@ -23,7 +23,7 @@
     </div>
 
     <br>
-    <table class="table table-dark" id="dataTable">
+    <table class="table table-dark" id="dataTable" >
         <thead>
             <th>ID</th>
             <th>Nom</th>
@@ -52,11 +52,12 @@
                     </td>
                 </tr>
             @endforeach
+            {{-- {!! $clients->links() !!} --}}
         </tbody>
         
     </table>
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $('#search').on('keyup',function(){
             console.log("hola");
             $value=$(this).val();
@@ -71,13 +72,32 @@
             });
         })
     </script>
+
     <script type="text/javascript">
         $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
-    </script>
+    </script> --}}
+
+
     <script>
         $(document).ready( function () {
             $('#dataTable').DataTable();
         } );
-    </script>
+        </script>
+
+
+
+    {{-- <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('serverSide') }}",
+                columnDefs: [{
+                    targets: [0, 1, 2],
+                    className: 'mdl-data-table__cell--non-numeric'
+                }]
+            });
+        });
+    </script> --}}
 
 @stop

@@ -4,7 +4,8 @@
 
     <h1>Crear nova cuota</h1>
 
-    <form action=" {{route('cuotes.store')}} ">
+    <form method="POST" action=" {{route('cuotes.store')}} ">
+        {{ csrf_field() }}
         <div class="form-group row">
             <label class="col-form-label col-sm-1" for="name">Nom:</label>
             <input type="text" name="name" class="form-control col-2" >

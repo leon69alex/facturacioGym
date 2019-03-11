@@ -22,6 +22,15 @@ Route::get('/search','ClientsController@search');
 Route::resource('cuotes', 'CuotesController');
 
 
+/* Route::get('/serverSide', [
+    'uses' => function () {
+        $users = App\Client::all();
+        dd($users);
+        return Datatables::of($users)->make();
+    }
+])->name('serverSide'); */
+
+
 //CREAR CLIENTS MASSIVAMENT DE PROVA.
 
 //https://github.com/fzaninotto/Faker
@@ -47,4 +56,5 @@ for($i = 0; $i < 1000; $i++) {
         'cuote_id' => 1,
         'numCompte' => $faker->iban('ES'),
     ]);
-} */
+}
+ */

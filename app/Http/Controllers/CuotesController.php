@@ -37,7 +37,11 @@ class CuotesController extends Controller
      */
     public function store(Request $request)
     {
-        $request->all(); 
+        Cuote::create($request->all());
+
+        $cuotes = Cuote::all();
+        
+        return view('cuotes.index', compact('cuotes'))->with('info', 'Cuota creada correctament');
     }
 
     /**

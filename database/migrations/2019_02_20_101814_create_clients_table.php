@@ -21,7 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('dni')->nullable();
             $table->integer('cuote_id');
             $table->string('numCompte');
-            $table->boolean('active');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

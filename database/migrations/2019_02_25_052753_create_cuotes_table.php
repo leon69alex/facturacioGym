@@ -18,7 +18,7 @@ class CreateCuotesTable extends Migration
             $table->string('name');
             $table->string('display_name')->nullable();
             $table->decimal('import', 8, 2);
-            $table->boolean('active');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

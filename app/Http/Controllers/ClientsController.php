@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Client;
 use App\Cuote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ClientsController extends Controller
 {
@@ -15,7 +16,39 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+        //$clients = Client::all();
+
+        $key = 'clients';
+
+        /* $key = "clients.page.".request('page', 1);
+        //$key = "clients.page.1";
+        //dd($key);*/
+
+        if(Cache::has($key))
+        {
+            $clients = Cache::get($key);
+        }
+        else
+        {
+            //$missatges = DB::table('messages')->get();
+
+            //Utilitzant models.
+            $clients = Client::all();
+                            //->orderBy('id', request('sorted', 'ASC'))
+                            //->paginate(10);
+
+            //GUARDEM ELS RESULTATS A LA CACHE DURANT 5 MIN.
+            Cache::put($key, $clients, 5);
+
+        }
+
+        //$clients->paginate(10);
+
+        /* $clients = Client::paginate(10);
+
+        $clients = Client::with(['cuote'])
+                        ->orderBy('id', request('sorted', 'ASC'))
+                        ->paginate(10); */
 
         //return $clients;
         //dd($clients);
@@ -106,7 +139,7 @@ class ClientsController extends Controller
         //
     }
 
-    public function search(Request $request)
+   /*  public function search(Request $request)
     {
         if($request->ajax())
         {
@@ -126,7 +159,7 @@ class ClientsController extends Controller
                         '<td>'.$client->cuote->display_name.'</td>'.
                         '<td>'.$client->numCompte.'</td>'.
                         //'<td>'.$client->active.'</td>'.
-                        '<td><input type="checkbox" value="'.$client->active.'"';
+                        '<td><input class="switch" id="switch-id" type="checkbox" value="'.$client->active.'"';
                     
                     if($client->active)
                     {
@@ -142,5 +175,5 @@ class ClientsController extends Controller
             }
             return Response($output);
         }
-    }
+    } */
 }
