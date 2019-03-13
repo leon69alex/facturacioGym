@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Cuote;
 
 class Client extends Model
 {
@@ -15,6 +14,6 @@ class Client extends Model
     public function cuote()
     {
         //return $this->hasOne(Cuote::class, 'id');
-        return $this->belongsTo(Cuote::class);
+        return $this->belongsTo('App\Cuote', 'cuote_id');
     }
 }

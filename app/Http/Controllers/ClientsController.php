@@ -16,47 +16,8 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        //$clients = Client::all();
-
-        $key = 'clients';
-
-        /* $key = "clients.page.".request('page', 1);
-        //$key = "clients.page.1";
-        //dd($key);*/
-
-        if(Cache::has($key))
-        {
-            $clients = Cache::get($key);
-        }
-        else
-        {
-            //$missatges = DB::table('messages')->get();
-
-            //Utilitzant models.
-            $clients = Client::all();
-                            //->orderBy('id', request('sorted', 'ASC'))
-                            //->paginate(10);
-
-            //GUARDEM ELS RESULTATS A LA CACHE DURANT 5 MIN.
-            Cache::put($key, $clients, 5);
-
-        }
-
-        //$clients->paginate(10);
-
-        /* $clients = Client::paginate(10);
-
-        $clients = Client::with(['cuote'])
-                        ->orderBy('id', request('sorted', 'ASC'))
-                        ->paginate(10); */
-
-        //return $clients;
-        //dd($clients);
-
-        /* foreach($clients as $client){
-            return $client->nom;
-        } */
-
+        $clients = Client::with('cuote')->get();
+        
         return view('clients.index', compact('clients'));
     }
 

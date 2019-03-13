@@ -10,11 +10,11 @@ class Cuote extends Model
         'name', 'display_name', 'import'
     ];
 
-    public function client()
+    /* public function client()
     {
 
         //return $this->belongsTo(Client::class, 'id');
 
         return $this->hasOne(Client::class);
-    }
+    } */
 }

@@ -23,7 +23,7 @@
     </div>
 
     <br>
-    <table class="table table-dark" id="dataTable" >
+    <table class="table-sm table-dark table-striped table-hover" id="dataTable" >
         <thead>
             <th>ID</th>
             <th>Nom</th>
@@ -34,7 +34,8 @@
             <th>Num Compte</th>
             <th>Actiu</th>
         </thead>
-        <tbody>
+        <tbody {{$n = 0}}>
+                
             @foreach($clients as $client)
                 <tr>
                     <th>{{ $client->id }}</th>
@@ -46,8 +47,10 @@
                     <td>{{ $client->numCompte }}</td>
                     <td>      
                         <span class="switch">
-                            <input type="checkbox" class="switch" id="switch-id" value="{{ $client->active }}" name="active" {{ $client->active ? 'checked' : '' }}/>
-                            <label for="switch-id"></label>
+                            
+                            <input type="checkbox" class="switch" id="switch-{{$n}}" value="{{ $client->active }}" name="active" {{ $client->active ? 'checked' : '' }}/>
+                            <label for="switch-{{$n}}" {{$n=$n+1}}></label>
+                            
                         </span>
                     </td>
                 </tr>
@@ -57,47 +60,16 @@
         
     </table>
 
-    {{-- <script type="text/javascript">
-        $('#search').on('keyup',function(){
-            console.log("hola");
-            $value=$(this).val();
-            $.ajax({
-                type : 'get',
-                url : '{{URL::to('search')}}',
-                data:{'search':$value},
-                success:function(data){
-                    //console.log(data);
-                    $('tbody').html(data);
-                }
-            });
-        })
-    </script>
-
-    <script type="text/javascript">
-        $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });
-    </script> --}}
 
 
     <script>
         $(document).ready( function () {
-            $('#dataTable').DataTable();
+            $('#dataTable').DataTable({
+                "language": {
+                    "url": "/js/datatables-spanish.json"
+                }
+            });
         } );
         </script>
-
-
-
-    {{-- <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('serverSide') }}",
-                columnDefs: [{
-                    targets: [0, 1, 2],
-                    className: 'mdl-data-table__cell--non-numeric'
-                }]
-            });
-        });
-    </script> --}}
 
 @stop
