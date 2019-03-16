@@ -67,8 +67,12 @@
             $('#dataTable').DataTable({
                 "language": {
                     "url": "/js/datatables-spanish.json"
-                }
+                },
+
+                "dom": '<"#buscador.float-left form-group has-search"f><"float-right"l><<t>ip>'
+                
             });
+            $("#buscador").prepend("<span class='fa fa-search form-control-feedback'></span>");
         } );
         </script>
 
