@@ -6,6 +6,8 @@ use App\Client;
 use App\Cuote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use App\Http\Requests\CreateClientRequest;
+
 
 class ClientsController extends Controller
 {
@@ -39,7 +41,7 @@ class ClientsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateClientRequest $request)
     {
         if($request->has('active'))
         {
@@ -63,7 +65,9 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        //
+        $client = Client::findOrFail($id);
+
+        return $client;
     }
 
     /**
