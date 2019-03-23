@@ -48920,7 +48920,8 @@ module.exports = function(module) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); //require('./IbanCalculator');
+
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -48943,6 +48944,15 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(".alert-success").fadeTo(2000, 500).slideUp(500, function () {
+  $(".alert-success").slideUp(1000);
+});
+/* $.holdReady( true );
+$.getScript( "/js/app.js", function() {
+  $.holdReady( false );
+  $("#dataTable_filter").find("input").addClass("form-control");
+});
+ */
 
 /***/ }),
 

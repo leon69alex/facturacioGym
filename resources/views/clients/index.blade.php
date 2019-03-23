@@ -13,10 +13,6 @@
     @endif
 
     <div class="d-flex justify-content-between">
-        <div class="form-group has-search">
-            <span class="fa fa-search form-control-feedback"></span>
-            <input type="text" id="search" class="form-control" placeholder="Search">
-          </div>
         <div>
             <a class="btn btn-success" href="{{ route('clients.create') }}">+ Nou Client</a>
         </div>
@@ -31,7 +27,8 @@
             <th>Email</th>
             <th>DNI</th>
             <th>Cuota</th>
-            <th>Num Compte</th>
+            <th>IBAN</th>
+            <th>SWIFT</th>
             <th>Actiu</th>
         </thead>
         <tbody {{$n = 0}}>
@@ -39,12 +36,17 @@
             @foreach($clients as $client)
                 <tr>
                     <th>{{ $client->id }}</th>
-                    <td>{{ $client->name }}</td>
+                    <td>
+                        <a href="{{ route('clients.edit', $client->id)}}">
+                            {{ $client->name }}
+                        </a>
+                    </td>
                     <td>{{ $client->surnames }}</td>
                     <td>{{ $client->email }}</td>
                     <td>{{ $client->dni }}</td>
                     <td>{{ $client->cuote->display_name }}</td>
-                    <td>{{ $client->numCompte }}</td>
+                    <td>{{ $client->IBAN }}</td>
+                    <td>{{ $client->SWIFT }}</td>
                     <td>      
                         <span class="switch">
                             
@@ -60,17 +62,10 @@
         
     </table>
     <script>
-        $(document).ready( function () {
-            $('#dataTable').DataTable({
-                "language": {
-                    "url": "/js/datatables-spanish.json"
-                },
-        
-                "dom": '<"#buscador.float-left form-group has-search"f><"float-right"l><<t>ip>'
-                
-            });
-            $("#buscador").append("<p>HOLA</p>");
-        });
 
     </script>
+@stop
+@section('javascript')
+    <script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="\js\Datatables\customDatatables.js"></script>
 @stop

@@ -6,6 +6,8 @@
  */
 
 require('./bootstrap');
+//require('./IbanCalculator');
+
 
 window.Vue = require('vue');
 
@@ -31,3 +33,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app'
 });
+
+
+
+$(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
+    $(".alert-success").slideUp(1000);
+});
+
+/* $.holdReady( true );
+$.getScript( "/js/app.js", function() {
+  $.holdReady( false );
+  $("#dataTable_filter").find("input").addClass("form-control");
+});
+ */
+

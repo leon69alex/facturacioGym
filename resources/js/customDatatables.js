@@ -1,0 +1,1 @@
+$("#dataTable_filter").find("input").addClass("form-control");

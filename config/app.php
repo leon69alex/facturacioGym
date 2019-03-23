@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ca',
 
     /*
     |--------------------------------------------------------------------------
@@ -162,6 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        MPijierro\Identity\IdentityServiceProvider::class,
+
 
         /*
          * Package Service Providers...

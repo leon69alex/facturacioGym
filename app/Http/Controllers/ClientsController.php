@@ -38,7 +38,7 @@ class ClientsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\CreateClientRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(CreateClientRequest $request)
@@ -47,12 +47,8 @@ class ClientsController extends Controller
         {
             $request['active'] = true;
         }
-
         
         $client = Client::create($request->all());
-        
-        //$client->cuote()->attach($request->cuote_id);
-        
 
         return redirect()->route('clients.index')->with('info', 'El client s\'ha creat correctament');
     }
@@ -78,7 +74,10 @@ class ClientsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::findOrFail($id);
+        $cuotes = Cuote::all();
+
+        return view('clients.edit', compact('client', 'cuotes'));
     }
 
     /**
@@ -90,7 +89,16 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $client = Client::findOrFail($id);
+
+        if($request->has('active'))
+        {
+            $request['active'] = true;
+        }
+        
+        $client->update($request->all());
+
+        return redirect()->route('clients.index')->with('info', 'El client s\'ha actualitzat correctament');
     }
 
     /**

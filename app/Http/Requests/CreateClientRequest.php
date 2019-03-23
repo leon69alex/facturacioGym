@@ -26,10 +26,10 @@ class CreateClientRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'email|required|unique:users,email',
+            'email' => 'email|unique:users,email',
             'dni' => 'nif',
             'cuote_id' => 'required',
-            'numCompte' => 'required|iban'
+            'IBAN' => 'required|iban',
         ];
-    }
+    } 
 }

@@ -8,7 +8,7 @@ class Client extends Model
 {
 
     protected $fillable = [
-        'name', 'surnames', 'numCompte', 'dni', 'email', 'cuote_id', 'active'
+        'name', 'surnames', 'CCC', 'IBAN', 'SWIFT', 'dni', 'email', 'cuote_id', 'active'
     ];
     
     public function cuote()
