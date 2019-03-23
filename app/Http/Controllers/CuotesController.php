@@ -63,7 +63,9 @@ class CuotesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cuote = Cuote::findOrFail($id);
+
+        return view('cuotes.edit', compact('cuote'));
     }
 
     /**
@@ -86,6 +88,6 @@ class CuotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "hola";
     }
 }

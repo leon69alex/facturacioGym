@@ -14,7 +14,7 @@
 </div>
 
 @endif
-<a class="btn btn-success" href="{{ route('cuotes.create') }}">+ Nova cuota</a>
+<a class="btn btn-success" href="{{ route('cuotes.create') }}"><i class="fas fa-plus-square"></i>  Nova cuota</a>
 <br>
 <br>
 <table class="table table-dark">
@@ -23,20 +23,84 @@
     <th>Nom</th>
     <th>Nom complert</th>
     <th>Import</th>
-    <th>Active</th>
+    <th>Actiu</th>
+    <th>Accions</th>
+
 </thead>
 <tbody>
     @foreach($cuotes as $cuote)
         <tr>
             <th>{{ $cuote->id }}</th>
-            <td>{{ $cuote->name }}</td>
+            <td>
+                <a href="{{ route('cuotes.edit', $cuote->id)}}">
+                    {{ $cuote->name }}
+                </a>
+            </td>
             <td>{{ $cuote->display_name }}</td>
             <td>{{ $cuote->import }}€</td>
             <td>{{ $cuote->active }}</td>
+            <td>
+                    <a class="btn btn-info" href=" {{ route('cuotes.edit', $cuote->id) }}">
+                        <i class="fas fa-edit"></i>
+                           Editar
+                    </a>
+                    <form style="display: inline" method="POST" action=" {{ route('cuotes.destroy', $cuote->id) }}">
+                        {!! csrf_field() !!}
+                        {!! method_field('DELETE') !!}
+                        
+                        <button class="btn btn-danger" id="removeCuote" type="button" ><i class="fa fa-trash"></i>  Eliminar</button>
+                    
+                    </form>
+                </td>
         </tr>
     @endforeach
 </tbody>
 
 </table>
 
+@stop
+@section('javascript')
+    <script>
+        $("#removeCuote").click(function(){
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    $
+                    )
+                }
+            })
+        })
+
+
+
+
+        /* function removeCuote(){
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                    )
+                }
+            })
+        } */
+
+    </script>
+    
 @stop
