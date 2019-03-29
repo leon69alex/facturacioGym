@@ -4,14 +4,12 @@
 
 
 @if(session()->has('info'))
-<div class="alert alert-success">
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('info') }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">&times;</span>
         </button>
     </div>
-</div>
 
 @endif
 <a class="btn btn-success" href="{{ route('cuotes.create') }}"><i class="fas fa-plus-square"></i>  Nova cuota</a>
@@ -44,11 +42,11 @@
                         <i class="fas fa-edit"></i>
                            Editar
                     </a>
-                    <form style="display: inline" method="POST" action=" {{ route('cuotes.destroy', $cuote->id) }}">
+                    <form style="display: inline" method="POST" class="formRemoveCuote" action=" {{ route('cuotes.destroy', $cuote->id) }}">
                         {!! csrf_field() !!}
                         {!! method_field('DELETE') !!}
                         
-                        <button class="btn btn-danger" id="removeCuote" type="button" ><i class="fa fa-trash"></i>  Eliminar</button>
+                        <button class="btn btn-danger removeCuote" type="button" ><i class="fa fa-trash"></i>  Eliminar</button>
                     
                     </form>
                 </td>
@@ -61,8 +59,9 @@
 @stop
 @section('javascript')
     <script>
-        $("#removeCuote").click(function(){
-            Swal.fire({
+        $(document).ready(function() {
+            $(".removeCuote").click(function(){
+                Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
                 type: 'warning',
@@ -70,13 +69,13 @@
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.value) {
-                    $
-                    )
-                }
+                }).then((result) => {
+                    if (result.value) {
+                        $(".formRemoveCuote").submit();
+                    }
+                })
             })
-        })
+        });
 
 
 

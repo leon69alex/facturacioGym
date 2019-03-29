@@ -77,7 +77,11 @@ class CuotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cuote = Cuote::findOrFail($id);
+
+        $cuote->update($request->all());
+
+        return redirect()->route('cuotes.index')->with('info', 'La cuota s\'ha actualitzat correctament');
     }
 
     /**
@@ -88,6 +92,10 @@ class CuotesController extends Controller
      */
     public function destroy($id)
     {
-        return "hola";
+        $cuote = Cuote::findOrFail($id);
+
+        $cuote->delete();
+
+        return redirect()->route('cuotes.index')->with('info', 'La cuota s\'ha eliminat correctament');
     }
 }

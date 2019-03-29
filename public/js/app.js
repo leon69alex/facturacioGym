@@ -48941,11 +48941,29 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app'
-});
+/*const app = new Vue({
+    el: '#app'
+});*/
+
 $(".alert-success").fadeTo(2000, 500).slideUp(500, function () {
   $(".alert-success").slideUp(1000);
+});
+$(document).ready(function () {
+  $(".removeCuote").click(function () {
+    Swal.fire({
+      title: 'Esta segur que vols eliminar la cuota?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(function (result) {
+      if (result.value) {
+        $(".formRemoveCuote").submit();
+      }
+    });
+  });
 });
 
 /***/ }),

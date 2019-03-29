@@ -30,9 +30,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+/*const app = new Vue({
     el: '#app'
-});
+});*/
 
 
 
@@ -40,6 +40,23 @@ $(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
     $(".alert-success").slideUp(1000);
 });
 
-
+$(document).ready(function() {
+    $(".removeCuote").click(function(){
+        Swal.fire({
+            title: 'Esta segur que vols eliminar la cuota?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                $(".formRemoveCuote").submit();
+                
+            }
+        })
+    })
+});
 
 
