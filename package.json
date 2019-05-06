@@ -27,6 +27,7 @@
     },
     "dependencies": {
         "datatables.net": "^1.10.19",
-        "datatables.net-dt": "^1.10.19"
+        "datatables.net-dt": "^1.10.19",
+        "mdbootstrap": "^4.8.0"
     }
 }
