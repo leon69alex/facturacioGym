@@ -10,29 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
-
+//AUTENTICACIÓ
+Auth::routes(['verify' => true]);
 Route::get('logout', 'Auth\LoginController@logout');
 
-/*Route::group(['middleware' => ['web']], function () {
-    
-});*/
-
+//INICI
 Route::get('/', function () {
     return view('home');
 })->name('home');
 
+
+/*FACTURACIÓ*/
+//CLIENTS
 Route::resource('clients', 'ClientsController');
-
-Route::get('/search','ClientsController@search');
-
-Route::resource('cuotes', 'CuotesController');
+Route::resource('cuotes', 'CuotesController')->middleware('verified');
+//Route::get('/search','ClientsController@search');
 
 
+/*ADMIN*/
+//VOYAGER(PANELL DE ADMINISTRACIÓ)
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+/*USUARIS*/
+Route::get('edit_profile', 'UsersController@edit');
 
 //GOOGLE OAUTH ==> SOCIALITE
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');

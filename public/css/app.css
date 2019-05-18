@@ -11527,3 +11527,13 @@ table.dataTable tbody tr {
   box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
 }
 
+.login {
+  height: 50px;
+}
+
+.logout {
+  margin-right: 5%;
+  margin-left: 5%;
+  width: 90%;
+}
+

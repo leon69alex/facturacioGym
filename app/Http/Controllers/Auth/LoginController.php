@@ -75,6 +75,7 @@ class LoginController extends Controller
             // log them in
             auth()->login($existingUser, true);
         } else {
+
             // create a new user
             $newUser = new User;
             $newUser->name = $user->name;
@@ -130,7 +131,6 @@ class LoginController extends Controller
             $newUser = new User;
             $newUser->name = $user->nickname;
             $newUser->email = $user->email;
-            //$newUser->google_id = $user->id;
             $newUser->avatar = $user->avatar;
             //$newUser->avatar_original = $user->avatar_original;
             $newUser->save();
