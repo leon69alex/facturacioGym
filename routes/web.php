@@ -10,9 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
+
+
+Route::get('logout', 'Auth\LoginController@logout');
+
+/*Route::group(['middleware' => ['web']], function () {
+    
+});*/
 
 Route::get('/', function () {
-    return view('home2');
+    return view('home');
 })->name('home');
 
 Route::resource('clients', 'ClientsController');
@@ -20,6 +28,32 @@ Route::resource('clients', 'ClientsController');
 Route::get('/search','ClientsController@search');
 
 Route::resource('cuotes', 'CuotesController');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
+
+//GOOGLE OAUTH ==> SOCIALITE
+Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
+//GOOGLE OAUTH ==> SOCIALITE
+Route::get('login/github', 'Auth\LoginController@redirectToGithub');
+Route::get('login/github/callback', 'Auth\LoginController@handleGithubCallback');
+
+
+
+//Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::post('login', 'Auth\LoginController@login');
+
+/*Route::post('login', function(){
+    return "HOLA";
+});*/
+
 
 
 /* Route::get('/serverSide', [
@@ -58,13 +92,3 @@ for($i = 0; $i < 1000; $i++) {
     ]);
 }
  */
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
-
-Auth::routes();
-
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-
-Route::get('/home', 'HomeController@index')->name('home');
