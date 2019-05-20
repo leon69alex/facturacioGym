@@ -52,27 +52,35 @@ class UsersController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        dd($user);
-        $user = User::findOrFail($user);
+        //dd($user);
+        $user = User::findOrFail($id);
 
-        return view('users.edit_profile', compact('user'));
+        //dd($user);
+
+        return view('users.profile', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $user->name = $request->name;
+
+        $user->save();
+
+        return redirect()->back()->with('info', 'Perfil actualitzat correctament');
     }
 
     /**

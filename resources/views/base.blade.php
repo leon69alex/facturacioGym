@@ -76,7 +76,7 @@
                         {{auth()->user()->name}}
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href=" {{route('edit_profile')}} ">Perfil</a>
+                        <a class="dropdown-item" href=" /users/profile/{{ auth()->id() }}">Perfil</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout">

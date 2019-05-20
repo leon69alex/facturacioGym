@@ -35,7 +35,19 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 /*USUARIS*/
-Route::get('edit_profile', 'UsersController@edit');
+//Route::get('edit_profile', 'UsersController@edit')->name('edit_profile');
+
+Route::get('users/profile/{id}', [
+    'as' => 'users.profile',
+    'uses' => 'UsersController@edit'
+    ]);
+
+Route::put('users/profile/{id}', [
+    'as' => 'messages.update',
+    'uses' => 'UsersController@update'
+    ]);
+
+
 
 //GOOGLE OAUTH ==> SOCIALITE
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
