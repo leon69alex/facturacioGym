@@ -30,6 +30,7 @@
             <th>IBAN</th>
             <th>SWIFT</th>
             <th>Actiu</th>
+            <th>Impagament</th>
         </thead>
         <tbody {{$n = 0}}>
                 
@@ -54,6 +55,12 @@
                             <label for="switch-{{$n}}" {{$n=$n+1}}></label>
                             
                         </span>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" href="clients/send/email/{{$client->id}} }}">
+                                <i class="fas fa-envelope"></i>
+                                    Enviar correu
+                        </a>
                     </td>
                 </tr>
             @endforeach

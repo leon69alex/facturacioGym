@@ -7,6 +7,8 @@ use App\Cuote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use App\Http\Requests\CreateClientRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 
 
 class ClientsController extends Controller
@@ -111,6 +113,25 @@ class ClientsController extends Controller
     {
         //
     }
+
+    /**
+     * Send an email to the specified client
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function sendEmailImpagament($id){
+
+        $client = Client::findOrFail($id);
+
+        //$name = 'Krunal';
+        Mail::to($client->email)->send(new SendEmail($client));
+   
+        return redirect()->back()->with('info', 'El missatge s\'ha enviat correctament');
+
+
+    }
+
 
    /*  public function search(Request $request)
     {

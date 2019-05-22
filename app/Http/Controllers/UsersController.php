@@ -5,50 +5,10 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
+use Storage;
+
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -57,10 +17,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //dd($user);
         $user = User::findOrFail($id);
-
-        //dd($user);
 
         return view('users.profile', compact('user'));
     }
@@ -74,23 +31,51 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $info = 'Perfil actualitzat correctament. ';
+
+        //Storage::disk('avatar')->put($request->file, 'users.jpg');
+       
+
         $user = User::findOrFail($id);
 
+        //echo asset($user->avatar);
+
+        
+
         $user->name = $request->name;
+        $user->surnames = $request->surnames;
+
+        if($request->avatar != null){
+
+            $path = $request->file('avatar')->store(
+                'users/avatars', 'avatar'
+            );
+
+            $user->avatar = $path;
+        }
+
+        if($user->email != $request->email){
+
+            if($request->password == null){
+                $info .= 'El teu email no es pot canviar ja que t\'autenfiques des de una aplicació externa. ';
+            } else {
+                $user->email = $request->email;
+                $user->email_verified_at = null;
+                $info .= 'Com has canviat el email, l\'hauras de tornar a confirmar. ';
+            }
+            
+        }
+
+        if($request->password != null){
+            if($user->password == null){
+                $info .= 'La teva contrasenya no es pot actualitzar ja que t\'autenfiques des de una aplicació externa. ';
+            } else {
+                $user->password = bcrypt($request->password);
+            }
+        }
 
         $user->save();
 
-        return redirect()->back()->with('info', 'Perfil actualitzat correctament');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
+        return redirect()->back()->with('info', $info);
     }
 }

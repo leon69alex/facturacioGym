@@ -24,6 +24,7 @@ Route::get('/', function () {
 /*FACTURACIÓ*/
 //CLIENTS
 Route::resource('clients', 'ClientsController');
+Route::get('clients/send/email/{id}', 'ClientsController@sendEmailImpagament'); //ENVIAR CORREU DE IMPAGAMENT//
 Route::resource('cuotes', 'CuotesController')->middleware('verified');
 //Route::get('/search','ClientsController@search');
 
@@ -43,7 +44,7 @@ Route::get('users/profile/{id}', [
     ]);
 
 Route::put('users/profile/{id}', [
-    'as' => 'messages.update',
+    'as' => 'users.update',
     'uses' => 'UsersController@update'
     ]);
 
