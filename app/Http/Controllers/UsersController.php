@@ -3,12 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 
 use Storage;
 
 class UsersController extends Controller
 {
+    function __construct()
+    {
+        //COMPROVA SI L'USUARI ESTA AUTENTIFICAT
+        //$this->middleware('auth', ['except' => ['show']]);
+        //COMPROVA ELS ROLS
+        $this->middleware('roles:admin');
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

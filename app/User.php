@@ -27,4 +27,36 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //FEM UNA "CLAU FORANA".
+    public function role()
+    {
+
+        //RELACIO 1 A 1
+        return $this->belongsTo(Role::class);
+
+        //RELACIO MOLTS A MOLTS
+        //return $this->belongsToMany(Role::class, 'user_roles');
+    }
+
+    public function hasRoles($roles){
+
+        //"pluck" RETORNA UN ARRAY AMB LA CLAU QUE LI PASSEM.
+        //"intersect" COMPARA DOS ARRAYS I RETORNA LES COINCIDENCIES
+        //dd($this->role);
+        //dd($this->roles->pluck('name')->intersect($roles)->count());
+        return $this->role->pluck('name')->intersect($roles)->count();
+
+        /* foreach ($roles as $role) {
+
+            foreach($this->roles as $userRole)
+            {
+                if($userRole->name === $role){
+                
+                    return true;
+                } 
+            }   
+        }
+        return false; */
+    }
 }
