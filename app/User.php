@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends \TCG\Voyager\Models\User implements MustVerifyEmail  
 {
     use Notifiable;
@@ -40,12 +41,12 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     }
 
     public function hasRoles($roles){
-
+        //dd($roles);
         //"pluck" RETORNA UN ARRAY AMB LA CLAU QUE LI PASSEM.
         //"intersect" COMPARA DOS ARRAYS I RETORNA LES COINCIDENCIES
-        //dd($this->role);
-        //dd($this->roles->pluck('name')->intersect($roles)->count());
-        return $this->role->pluck('name')->intersect($roles)->count();
+        //dd($this->role());
+        //dd($this->role()->pluck('name')->intersect($roles));
+        return $this->role()->pluck('name')->intersect($roles)->count();
 
         /* foreach ($roles as $role) {
 

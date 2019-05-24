@@ -21,9 +21,11 @@ Route::get('/', 'HomeController@index')->name('home');
 
 /*FACTURACIÓ*/
 //CLIENTS
-Route::resource('clients', 'ClientsController');
-Route::get('clients/send/email/{id}', 'ClientsController@sendEmailImpagament'); //ENVIAR CORREU DE IMPAGAMENT//
-Route::resource('cuotes', 'CuotesController')->middleware('verified');
+Route::resource('clients', 'ClientsController')->middleware(['auth', 'roles']);
+Route::get('clients/send/email/{id}', 'ClientsController@sendEmailImpagament')->middleware(['auth', 'roles']); //ENVIAR CORREU DE IMPAGAMENT//
+
+//CUOTES
+Route::resource('cuotes', 'CuotesController')->middleware(['auth', 'roles']);
 //Route::get('/search','ClientsController@search');
 
 

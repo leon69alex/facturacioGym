@@ -4,12 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Role extends \TCG\Voyager\Models\Role
 {
-    /*public function user()
+
+    //protected $table = 'roles';
+
+
+    public function user()
     {
-        //dd('Ho0la');
         return $this->hasMany(User::class);
 
-    }*/
+    }
 }
