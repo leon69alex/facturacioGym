@@ -28,6 +28,9 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
 
+        //HO COMPROVA EL POLICY UserPolicy
+        $this->authorize('edit', $user);
+
         return view('users.profile', compact('user'));
     }
 
@@ -42,19 +45,23 @@ class UsersController extends Controller
     {
         $info = 'Perfil actualitzat correctament. ';
 
-        //Storage::disk('avatar')->put($request->file, 'users.jpg');
-       
-
         $user = User::findOrFail($id);
 
-        //echo asset($user->avatar);
-
-        
+        $this->authorize('edit', $user);
 
         $user->name = $request->name;
         $user->surnames = $request->surnames;
 
         if($request->avatar != null){
+
+            $this->validate($request, [
+                'avatar' => 'mimes:jpeg,png,bmp,tiff |max:4096',
+            ],
+                $messages = [
+                    'required' => 'The :attribute field is required.',
+                    'mimes' => 'Only jpeg, png, bmp,tiff are allowed.'
+                ]
+            );
 
             $path = $request->file('avatar')->store(
                 'users/avatars', 'avatar'

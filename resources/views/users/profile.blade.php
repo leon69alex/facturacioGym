@@ -13,7 +13,7 @@
     @endif
 
     <h1>El meu perfil</h1>
-    <form method="POST" action=" {{ route('users.update', $user->id) }} " enctype="multipart/form-data">
+    <form method="POST" action=" {{ route('users.update', $user->id) }} " enctype="multipart/form-data" accept="image/*">
         {!! method_field('PUT') !!}
         {!! csrf_field() !!}
         <div class="form-group row">

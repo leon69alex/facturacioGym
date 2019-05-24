@@ -84,7 +84,7 @@ Route::get('login/github/callback', 'Auth\LoginController@handleGithubCallback')
 //CREAR CLIENTS MASSIVAMENT DE PROVA.
 
 //https://github.com/fzaninotto/Faker
- $faker = Faker\Factory::create();
+/* $faker = Faker\Factory::create();
 
 $faker = new Faker\Generator();
 $faker->addProvider(new Faker\Provider\es_ES\Person($faker));
@@ -108,5 +108,5 @@ for($i = 0; $i < 100; $i++) {
         'CCC' => substr($iban,3),
         'IBAN' => $iban,
     ]);
-}
+}*/
  

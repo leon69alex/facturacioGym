@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Socialite;
+use Storage;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Response;
@@ -80,10 +81,10 @@ class LoginController extends Controller
             $newUser = new User;
             $newUser->name = $user->name;
             $newUser->email = $user->email;
-            //$newUser->google_id = $user->id;
             $newUser->avatar = $user->avatar;
             //$newUser->avatar_original = $user->avatar_original;
             $newUser->save();
+
             auth()->login($newUser, true);
         }
         return redirect()->to('/');
@@ -92,7 +93,7 @@ class LoginController extends Controller
     //OAUTH WITH GITHUB
 
     /**
-    * Redirect the user to the Google authentication page.
+    * Redirect the user to the Github authentication page.
     *
     * @return \Illuminate\Http\Response
     */
@@ -103,7 +104,7 @@ class LoginController extends Controller
     }
 
      /**
-     * Obtain the user information from Google.
+     * Obtain the user information from Github.
      *
      * @return \Illuminate\Http\Response
      */
