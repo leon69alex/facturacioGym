@@ -16,9 +16,7 @@ Auth::routes(['verify' => true]);
 Route::get('logout', 'Auth\LoginController@logout');
 
 //INICI
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 
 /*FACTURACIÓ*/
@@ -109,4 +107,3 @@ for($i = 0; $i < 100; $i++) {
         'IBAN' => $iban,
     ]);
 }*/
- 

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="\css\mdb.min.css">
     <link rel="stylesheet" href="\css\app.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <title>FacturacioGym</title>
+    <title>Gimnas Palace</title>
 </head>
 <body>
 

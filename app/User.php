@@ -31,7 +31,7 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     //FEM UNA "CLAU FORANA".
     public function role()
     {
-
+        //dd($this->belongsTo(Role::class));
         //RELACIO 1 A 1
         return $this->belongsTo(Role::class);
 
