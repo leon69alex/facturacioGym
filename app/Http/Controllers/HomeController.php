@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $images = array_diff(scandir('storage\images\slider'), array('..', '.'));;
+        $images = array_diff(scandir('storage/images/slider'), array('..', '.'));;
 
         return view('home', compact('images'));
     }

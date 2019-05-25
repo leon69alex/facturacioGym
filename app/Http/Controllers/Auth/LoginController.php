@@ -64,7 +64,7 @@ class LoginController extends Controller
         try {
             $user = Socialite::driver('google')->user();
         } catch (\Exception $e) {
-            return redirect('/');
+            return redirect()->back();
         }
         // only allow people with @company.com to login
         //if(explode("@", $user->email)[1] !== 'company.com'){
@@ -87,7 +87,7 @@ class LoginController extends Controller
 
             auth()->login($newUser, true);
         }
-        return redirect()->to('/');
+        return redirect()->back();
     }
 
     //OAUTH WITH GITHUB

@@ -21,11 +21,12 @@ Route::get('/', 'HomeController@index')->name('home');
 
 /*FACTURACIÓ*/
 //CLIENTS
-Route::resource('clients', 'ClientsController')->middleware(['auth', 'roles']);
-Route::get('clients/send/email/{id}', 'ClientsController@sendEmailImpagament')->middleware(['auth', 'roles']); //ENVIAR CORREU DE IMPAGAMENT//
+Route::resource('clients', 'ClientsController')->middleware(['auth', 'roles:admin,mod']);
+Route::get('clients/send/email/{id}', 'ClientsController@sendEmailImpagament')->middleware(['auth', 'roles:admin,mod']); //ENVIAR CORREU DE IMPAGAMENT//
+Route::post('clients/ajaxRequest', 'ClientsController@switchClients')->middleware(['auth', 'roles:admin,mod']);
 
 //CUOTES
-Route::resource('cuotes', 'CuotesController')->middleware(['auth', 'roles']);
+Route::resource('cuotes', 'CuotesController')->middleware(['auth', 'roles:admin,mod']);
 //Route::get('/search','ClientsController@search');
 
 

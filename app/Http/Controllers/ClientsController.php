@@ -132,6 +132,27 @@ class ClientsController extends Controller
 
     }
 
+    public function switchClients(Request $request){
+        //return response()->json($request);
+
+        if($request->ajax()){
+            $client = Client::findOrFail($request->id);
+
+            if($client->active){
+                $client->active = false;
+            } else {
+                $client->active = true;
+            }
+
+            $client->save();
+
+            return response()->json(['success'=> $client->active]);
+        }
+
+        //return "HOLA";
+    }
+
+
 
    /*  public function search(Request $request)
     {

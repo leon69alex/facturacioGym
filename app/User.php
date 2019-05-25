@@ -44,7 +44,7 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
         //dd($roles);
         //"pluck" RETORNA UN ARRAY AMB LA CLAU QUE LI PASSEM.
         //"intersect" COMPARA DOS ARRAYS I RETORNA LES COINCIDENCIES
-        //dd($this->role());
+        //dd($this->role);
         //dd($this->role()->pluck('name')->intersect($roles));
         return $this->role()->pluck('name')->intersect($roles)->count();
 

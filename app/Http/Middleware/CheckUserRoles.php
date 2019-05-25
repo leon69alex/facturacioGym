@@ -20,6 +20,8 @@ class CheckUserRoles
         //SI NO FESSIM AIXÒ TAMBE OBTINDRIEM EL "$request" i el "Closure"
         $roles = array_slice(func_get_args(), 2);
 
+        //dd($request);
+
         //dd($roles);
 
         if(auth()->user()->hasRoles($roles)){

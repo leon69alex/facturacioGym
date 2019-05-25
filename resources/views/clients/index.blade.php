@@ -32,7 +32,7 @@
             <th>Actiu</th>
             <th>Impagament</th>
         </thead>
-        <tbody {{$n = 0}}>
+        <tbody>
                 
             @foreach($clients as $client)
                 <tr>
@@ -50,10 +50,8 @@
                     <td>{{ $client->SWIFT }}</td>
                     <td>      
                         <span class="switch">
-                            
-                            <input type="checkbox" class="switch" id="switch-{{$n}}" value="{{ $client->active }}" name="active" {{ $client->active ? 'checked' : '' }}/>
-                            <label for="switch-{{$n}}" {{$n=$n+1}}></label>
-                            
+                            <input  type="checkbox" class="switch btnAjax" id="switch-{{$client->id}}" value="{{ $client->active }}" name="active" {{ $client->active ? 'checked' : '' }}/>
+                            <label for="switch-{{$client->id}}"></label>
                         </span>
                     </td>
                     <td>
@@ -68,11 +66,38 @@
         </tbody>
         
     </table>
-    <script>
 
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $(".btnAjax").click(function(e){
+        
+                e.preventDefault();
+                var id = $(this).attr('id');
+        
+                id = id.substring(id.indexOf('-')+1);     
+        
+                $.ajax({
+        
+                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+        
+                    type:'POST',
+        
+                    url:'clients/ajaxRequest',
+        
+                    data:{id:id},
+        
+                    success:function(data){
+                        alert(data.success);
+        
+                    }
+                });
+            });
+        });
     </script>
+    
 @stop
 @section('javascript')
     <script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="\js\Datatables\customDatatables.js"></script>
 @stop
+
