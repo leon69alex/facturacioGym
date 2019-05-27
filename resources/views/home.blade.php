@@ -2,7 +2,7 @@
 
 @section('contingut')
 
-<h1>INICI</h1>
+<h1 class="title">INICI</h1>
 
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

@@ -27,4 +27,11 @@ class HomeController extends Controller
 
         return view('home', compact('images'));
     }
+
+    public function instalacions()
+    {
+        $images = array_diff(scandir('storage/images/instalacions'), array('..', '.'));;
+
+        return view('instalacions', compact('images'));
+    }
 }

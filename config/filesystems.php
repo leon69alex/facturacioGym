@@ -61,6 +61,13 @@ return [
             'url' => env('APP_URL').'/storage/users/avatars',
             'visibility' => 'public',
         ],
+        'import' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            //S'HAURAN DE PENJAR A LA STORAGE DEL MEDIA DEL VOYAGER
+            'url' => env('APP_URL').'/storage/import',
+            'visibility' => 'public',
+        ],
 
         's3' => [
             'driver' => 's3',

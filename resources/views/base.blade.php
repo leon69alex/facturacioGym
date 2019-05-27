@@ -34,7 +34,7 @@
               <a class="nav-link" href=" {{route('home')}} ">Inici <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=" {{route('clients.index')}} ">Clients</a>
+              <a class="nav-link" href="/instalacions">Instal·lacions</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href=" {{route('cuotes.index')}} ">Cuotes</a>

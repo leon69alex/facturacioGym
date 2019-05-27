@@ -14,7 +14,9 @@
 
     <div class="d-flex justify-content-between">
         <div>
-            <a class="btn btn-success" href="{{ route('clients.create') }}">+ Nou Client</a>
+            <a class="btn btn-success" href="{{ route('clients.create') }}"><i class="fas fa-plus-square"></i> Nou Client</a>
+            <a class="btn btn-success" href="importClients"><i class="fas fa-file-excel"></i> Importar massivament</a>
+
         </div>
     </div>
 

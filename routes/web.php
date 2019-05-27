@@ -17,6 +17,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 
 //INICI
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('instalacions', 'HomeController@instalacions')->name('instalacions');
 
 
 /*FACTURACIÓ*/
@@ -24,6 +25,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('clients', 'ClientsController')->middleware(['auth', 'roles:admin,mod']);
 Route::get('clients/send/email/{id}', 'ClientsController@sendEmailImpagament')->middleware(['auth', 'roles:admin,mod']); //ENVIAR CORREU DE IMPAGAMENT//
 Route::post('clients/ajaxRequest', 'ClientsController@switchClients')->middleware(['auth', 'roles:admin,mod']);
+Route::get('importClients', 'ClientsController@importClients')->middleware(['auth', 'roles:admin']);
+
 
 //CUOTES
 Route::resource('cuotes', 'CuotesController')->middleware(['auth', 'roles:admin,mod']);

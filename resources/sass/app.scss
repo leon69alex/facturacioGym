@@ -244,6 +244,29 @@ table.dataTable tbody tr {
   width: 90%;
 }
 
+//GALLERY
+.btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
+#image-gallery .modal-footer{
+  display: block;
+}
 
+.thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 
+//TITOL
+.title{
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 60px;
+  
+}
+
+.body{
+  background-color: linear-gradient(to bottom, #0099cc 0%, #ccffff 100%) !important;
+}

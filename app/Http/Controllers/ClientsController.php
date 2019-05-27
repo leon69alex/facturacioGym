@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Cache;
 use App\Http\Requests\CreateClientRequest;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ClientsImport;
 
 
 class ClientsController extends Controller
@@ -148,47 +150,14 @@ class ClientsController extends Controller
 
             return response()->json(['success'=> $client->active]);
         }
-
-        //return "HOLA";
     }
 
-
-
-   /*  public function search(Request $request)
+    public function importClients() 
     {
-        if($request->ajax())
-        {
-            $output = "";
-
-            $clients = Client::where('name', 'LIKE', '%'.$request->search.'%')->get();
-
-            if($clients)
-            {
-                foreach( $clients as $key => $client){
-                    $output.='<tr>'.
-                        '<td>'.$client->id.'</td>'.
-                        '<td>'.$client->name.'</td>'.
-                        '<td>'.$client->surnames.'</td>'.
-                        '<td>'.$client->email.'</td>'.
-                        '<td>'.$client->dni.'</td>'.
-                        '<td>'.$client->cuote->display_name.'</td>'.
-                        '<td>'.$client->numCompte.'</td>'.
-                        //'<td>'.$client->active.'</td>'.
-                        '<td><input class="switch" id="switch-id" type="checkbox" value="'.$client->active.'"';
-                    
-                    if($client->active)
-                    {
-                        $output.=' checked';
-                    }
-                    
-                    $output.='></td></tr>';
-
-                    //dd($output);
-
-                }
-                
-            }
-            return Response($output);
-        }
-    } */
+        //dd(scandir('storage/import'));
+        Excel::import(new ClientsImport, 'clients.xlsx', 'import');
+        //dd(scandir('storage/import'));
+        //dd("HOP");
+        return redirect()->back()->with('info', 'Clients importats correctament');
+    }
 }
