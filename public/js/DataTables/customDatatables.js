@@ -15,8 +15,8 @@ $(document).ready( function () {
             $buscador.find("input").attr("placeholder", "Buscar");
 
             $('select[name=dataTable_length]').addClass("custom-select");
-          }
-        
+          },
+          responsive: true
     });
     
 });

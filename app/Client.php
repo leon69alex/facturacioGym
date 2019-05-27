@@ -16,4 +16,10 @@ class Client extends Model
         //return $this->hasOne(Cuote::class, 'id');
         return $this->belongsTo('App\Cuote', 'cuote_id');
     }
+
+    public function remesa()
+    {
+        return $this->belongsToMany(Remesa::class, 'remeses_clients');
+
+    }
 }

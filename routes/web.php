@@ -29,6 +29,12 @@ Route::post('clients/ajaxRequest', 'ClientsController@switchClients')->middlewar
 Route::resource('cuotes', 'CuotesController')->middleware(['auth', 'roles:admin,mod']);
 //Route::get('/search','ClientsController@search');
 
+//REMESES
+Route::get('remeses', 'RemesesController@index')->middleware(['auth', 'roles:admin,mod']);
+Route::get('remeses/show/{id}', 'RemesesController@show')->middleware(['auth', 'roles:admin,mod']);
+Route::get('remeses/generate', 'RemesesController@generate')->middleware(['auth', 'roles:admin']);
+Route::get('remeses/generate-pdf/{id}','RemesesController@generatePDF')->middleware(['auth', 'roles:admin']);
+
 
 /*ADMIN*/
 //VOYAGER(PANELL DE ADMINISTRACIÓ)
@@ -48,6 +54,10 @@ Route::put('users/profile/{id}', [
     'as' => 'users.update',
     'uses' => 'UsersController@update'
     ]);
+
+Route::get('users/calendar/{id}', function(){
+    return view('users.calendar');
+});
 
 
 

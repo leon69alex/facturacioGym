@@ -14,7 +14,7 @@ return [
         'add_default_role_on_register' => true,
         'default_role'                 => 'user',
         'namespace'                    => null,
-        'default_avatar'               => 'users/default.png',
+        'default_avatar'               => 'users/avatars/default.png',
         'redirect'                     => '/admin',
     ],
 
@@ -105,14 +105,14 @@ return [
         /*
          * Select default language
          */
-        'default' => 'en',
+        'default' => 'es',
 
         /*
          * Select languages that are supported.
          */
         'locales' => [
             'en',
-            //'pt',
+            'es',
         ],
     ],
 

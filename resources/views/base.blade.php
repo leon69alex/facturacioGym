@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="\css\mdb.min.css">
     <link rel="stylesheet" href="\css\app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    @yield('css')
+    
     <title>Gimnas Palace</title>
 </head>
 <body>
@@ -45,9 +48,9 @@
                   Facturacio
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Clients</a>
-                  <a class="dropdown-item" href="#">Cuotes</a>
-                  <a class="dropdown-item" href="#">Remeses</a>
+                  <a class="dropdown-item" href=" {{route('clients.index')}} ">Clients</a>
+                  <a class="dropdown-item" href=" {{route('cuotes.index')}} ">Cuotes</a>
+                  <a class="dropdown-item" href="/remeses">Remeses</a>
                 </div>
               </li>
             @endif
@@ -116,7 +119,7 @@
                         <button type="submit" class="btn btn-success" id="login">Accedir</button>
                       </div>
                       <div class="modal-footer d-flex justify-content-center">
-                        <a href="register">
+                        <a href="#" href="#" data-toggle="modal" data-target="#modalRegisterForm">
                             <button type="button" class="btn btn-success" id="register">Registra't</button>
                         </a> 
                       </div>
@@ -137,6 +140,48 @@
           </form>
           <!--END MODAL LOGIN FORM-->
 
+          <!--MODAL REGISTER FORM-->
+          <form method="POST" action="register">
+            {!! csrf_field() !!}
+            <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog" role="document" >
+                  <div class="modal-content">
+                    <div class="modal-header text-center">
+                      <h4 class="modal-title w-100 font-weight-bold">Registre d'usuari</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <i class="fas fa-male prefix grey-text"></i>
+                            <input name="name" type="text" id="name" class="form-control validate" style="color:black;margin-left:9%">
+                            <label for="email" style="font-weight: bold">Nom</label>
+                          </div>
+                      <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input name="email" type="email" id="Email" class="form-control validate" style="color:black;margin-left:9%">
+                        <label for="email" style="font-weight: bold">Correu Electrònic</label>
+                      </div>      
+                      <div class="md-form mb-4">
+                        <i class="fas fa-lock prefix grey-text"></i>
+                        <input name="password" type="password" id="password" class="form-control validate" style="color:black;margin-left:9%">
+                        <label for="password" style="font-weight: bold">Contrasenya</label>
+                      </div>
+                      <div class="md-form mb-4">
+                          <i class="fas fa-check-circle prefix grey-text"></i>
+                          <input name="password_confirmation" type="password" id="confirm-password" class="form-control validate" style="color:black;margin-left:9%">
+                          <label for="confirm-password" style="font-weight: bold">Confirmar Contrasenya</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                      <button type="submit" class="btn btn-success" id="register">Registrar-me</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </form>
+        <!--END MODAL LOGIN FORM-->
 
         </div>
     </nav>
@@ -307,8 +352,16 @@
 
 </footer>
 <!-- Footer -->    
+<script type="text/javascript">
+  $(document).ready(function(){
     
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    $('#register').on('click', function(){
+      $('#modalLoginForm').modal('hide');
+    });
+  });
+</script>
+
+    
     <script src="/js/app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
@@ -316,11 +369,7 @@
     <script type="text/javascript" src="\js\mdb.min.js"></script>
     
     
-    @yield('javascript')
-
-
-    
-    
-    
+    @yield('javascript')    
+    @include('cookieConsent::index')
 </body>
 </html>

@@ -67,37 +67,39 @@
         
     </table>
 
-    <script type="text/javascript">
-        $(document).ready( function () {
-            $(".btnAjax").click(function(e){
-        
-                e.preventDefault();
-                var id = $(this).attr('id');
-        
-                id = id.substring(id.indexOf('-')+1);     
-        
-                $.ajax({
-        
-                    headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-        
-                    type:'POST',
-        
-                    url:'clients/ajaxRequest',
-        
-                    data:{id:id},
-        
-                    success:function(data){
-                        alert(data.success);
-        
-                    }
-                });
+<script type="text/javascript">
+    $(document).ready( function () {
+        $(".btnAjax").on('click', function(e){
+
+            var id = $(this).attr('id');
+    
+            id = id.substring(id.indexOf('-')+1);     
+    
+            $.ajax({
+    
+                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+    
+                type:'POST',
+    
+                url:'clients/ajaxRequest',
+    
+                data:{id:id},
+    
+                success:function(data){
+                    //alert(data.success);
+    
+                }
             });
         });
-    </script>
+    });
+</script>
     
 @stop
+
 @section('javascript')
+
     <script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    
     <script src="\js\Datatables\customDatatables.js"></script>
 @stop
 
