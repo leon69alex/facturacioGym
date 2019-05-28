@@ -189,25 +189,15 @@
     </div>
 @endif
 
+<div class="container-fluid">
+    @yield('contingut')
+</div>
 
 
-
-
-
-
-
-
-
-
-    <div class="container-fluid">
-        @yield('contingut')
-    </div>
-    
-
-    <br>
-    <br>
+<br>
+<br>
     <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark fixed-bottom">
+<footer class="page-footer font-small unique-color-dark fixed">
 
   <div style="background-color: #6351ce;">
     <div class="container">
