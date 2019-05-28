@@ -6,7 +6,9 @@
 
     <form method="POST" action="{{ route('clients.update', $client->id) }}">
         {!! method_field('PUT') !!}
-        @include('clients.form')
+        @include('clients.form', [
+            'btnText' => 'Actualitzar Client'
+        ])
     </form>
 @stop
 

@@ -45,5 +45,5 @@
             <input type="checkbox" name="active" class="form-check-input" checked>
             <label class="form-check-label" for="active">Actiu</label>
         </div>
-        <input type="submit" class="btn btn-primary" value="Crear client">
+        <input type="submit" class="btn btn-primary" value="{{ $btnText ?? 'Crear Client' }}">
 

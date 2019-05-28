@@ -13,5 +13,5 @@
 @stop
 
 @section('javascript')
-    
+<script src="/js/planning.js"></script>
 @stop

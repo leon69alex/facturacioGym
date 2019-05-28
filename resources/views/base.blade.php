@@ -53,7 +53,7 @@
           @if(!auth()->check())
           <span class="navbar-text" style="padding-right:3%">
             <button class="btn btn-success login">
-                <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLoginForm">Accedir</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLoginForm"><i class="fas fa-sign-in-alt"></i> Accedir</a>
             </button>
             
           </span>

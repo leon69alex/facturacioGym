@@ -21,6 +21,7 @@ Route::get('instalacions', 'HomeController@instalacions')->name('instalacions');
 Route::get('contacta', 'HomeController@contacta')->name('contacta');
 
 
+
 /*FACTURACIÓ*/
 //CLIENTS
 Route::resource('clients', 'ClientsController')->middleware(['auth', 'roles:admin,mod']);
@@ -59,8 +60,8 @@ Route::put('users/profile/{id}', [
     'uses' => 'UsersController@update'
     ]);
 
-Route::get('users/calendar/{id}', function(){
-    return view('users.calendar');
+Route::get('users/planning/{id}', function(){
+    return view('users.planning');
 });
 
 

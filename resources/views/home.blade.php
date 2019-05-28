@@ -49,6 +49,7 @@
               <i class="fas fa-quote-left"></i> Benvinguts a la web del gimnàs Palace! Aquí podreu trobar tota la informació necessària per conèixer 
               tot un ventall de serveis i noves activitats que us oferim. Presentem una alternativa moderna al gimnàs clàssic basada en una atenció 
               i un entrenament personalitzat per part dels nostres monitors. Les nostres activitats van des del manteniment, funky, aerobox, aquagym… fins al Pilates.
+              <i class="fas fa-quote-right"></i>
             </h4>
             <h3 class="font-weight-bold">Gimnàs Palace</h3>
             <h6 class="font-weight-bold my-3">L'equip directiu</h6>
