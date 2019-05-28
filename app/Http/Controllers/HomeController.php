@@ -34,4 +34,9 @@ class HomeController extends Controller
 
         return view('instalacions', compact('images'));
     }
+
+    public function contacta()
+    {
+        return view('contacta');
+    }
 }

@@ -15,13 +15,11 @@
 </head>
 <body>
 
-    
-
-
     <?php function activeMenu($url){
       return request()->is($url) ? 'active' : '';
       } 
     ?>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="{{route('home')}}">Gimnàs Palace</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,17 +28,14 @@
       
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item {{activeMenu('/')}}">
               <a class="nav-link" href=" {{route('home')}} ">Inici <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{activeMenu('instalacions')}}">
               <a class="nav-link" href="/instalacions">Instal·lacions</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href=" {{route('cuotes.index')}} ">Cuotes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href=" {{route('cuotes.index')}} ">Remeses</a>
+            <li class="nav-item {{activeMenu('contacta')}}">
+              <a class="nav-link" href="/contacta">Localització & Contacte</a>
             </li>
             @if(auth()->check() && auth()->user()->hasRoles(['admin', 'mod']))
               <li class="nav-item dropdown">
@@ -212,7 +207,7 @@
     <br>
     <br>
     <!-- Footer -->
-<footer class="page-footer font-small unique-color-dark fixed">
+<footer class="page-footer font-small unique-color-dark fixed-bottom">
 
   <div style="background-color: #6351ce;">
     <div class="container">
@@ -296,50 +291,7 @@
       </div>
       <!-- Grid column -->
 
-      <!-- Grid column -->
-      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Products</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <a href="#!">MDBootstrap</a>
-        </p>
-        <p>
-          <a href="#!">MDWordPress</a>
-        </p>
-        <p>
-          <a href="#!">BrandFlow</a>
-        </p>
-        <p>
-          <a href="#!">Bootstrap Angular</a>
-        </p>
-
-      </div>
-      <!-- Grid column -->
-
-      <!-- Grid column -->
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
-          <a href="#!">Your Account</a>
-        </p>
-        <p>
-          <a href="#!">Become an Affiliate</a>
-        </p>
-        <p>
-          <a href="#!">Shipping Rates</a>
-        </p>
-        <p>
-          <a href="#!">Help</a>
-        </p>
-
-      </div>
-      <!-- Grid column -->
-
+      
       <!-- Grid column -->
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 

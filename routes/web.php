@@ -18,6 +18,7 @@ Route::get('logout', 'Auth\LoginController@logout');
 //INICI
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('instalacions', 'HomeController@instalacions')->name('instalacions');
+Route::get('contacta', 'HomeController@contacta')->name('contacta');
 
 
 /*FACTURACIÓ*/

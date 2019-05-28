@@ -42,7 +42,7 @@
         <div class="carousel-item active">
           <div class="testimonial">
             <div class="avatar mx-auto mb-4">
-              <img src="/storage/logo.png" class="rounded-circle img-fluid"
+              <img src="/storage/images/logo.png" class="rounded-circle img-fluid"
                 alt="Logo">
             </div>
             <h4>
