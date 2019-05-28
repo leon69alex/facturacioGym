@@ -30,7 +30,7 @@
         <tr>
             <th>{{ $cuote->id }}</th>
             <td>
-                <a href="{{ route('cuotes.edit', $cuote->id)}}">
+                <a href="{{ route('cuotes.edit', $cuote->id)}}" style="color:green">
                     {{ $cuote->name }}
                 </a>
             </td>

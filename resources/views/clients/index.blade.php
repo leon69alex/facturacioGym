@@ -40,7 +40,7 @@
                 <tr>
                     <th>{{ $client->id }}</th>
                     <td>
-                        <a href="{{ route('clients.edit', $client->id)}}">
+                        <a href="{{ route('clients.edit', $client->id)}}" style="color:green">
                             {{ $client->name }}
                         </a>
                     </td>
@@ -102,6 +102,6 @@
 
     <script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     
-    <script src="\js\Datatables\customDatatables.js"></script>
+    <script src="\js\DataTables\customDatatables.js"></script>
 @stop
 

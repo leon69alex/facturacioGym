@@ -21,8 +21,14 @@ class RemesesController extends Controller
     public function show($id)
     {
         $remesa = Remesa::findOrFail($id);
+
+        $import_total = 0.00;
+
+        foreach ($remesa->clients as $client) {
+            $import_total = $import_total + $client->cuote->import;
+        }
         
-        return view('remeses.show', compact('remesa'));
+        return view('remeses.show', compact('remesa', 'import_total'));
     }
 
     public function generate()

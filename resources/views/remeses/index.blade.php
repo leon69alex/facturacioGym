@@ -4,7 +4,7 @@
 
     <div class="d-flex justify-content-between">
             <div>
-                <a class="btn btn-success" href="/remeses/generate">+ Generar Remesa</a>
+                <a class="btn btn-success" href="/remeses/generate"><i class="fas fa-plus-square"></i> Generar Remesa</a>
             </div>
         </div>
     
@@ -22,7 +22,7 @@
                     <tr>
                         <th>{{ $remesa->id }}</th>
                         <td>
-                            <a href="show/{{$remesa->id}}">
+                            <a style="color:green" href="remeses/show/{{$remesa->id}}">
                                 {{ $remesa->name }}
                             </a>
                         </td>
@@ -40,5 +40,5 @@
 
     <script src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     
-    <script src="\js\Datatables\customDatatables.js"></script>
+    <script src="\js\DataTables\customDatatables.js"></script>
 @stop
