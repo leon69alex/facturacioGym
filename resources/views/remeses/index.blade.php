@@ -4,7 +4,7 @@
 
     <div class="d-flex justify-content-between">
             <div>
-                <a class="btn btn-success" href="/remeses/generate"><i class="fas fa-plus-square"></i> Generar Remesa</a>
+                <a class="btn btn-rounded btn-dark-green" href="/remeses/generate"><i class="fas fa-plus-square"></i> Generar Remesa</a>
             </div>
         </div>
         <b style="color:brown">La remesa es generarà a partir dels clients actius actuals del sistema</b>

@@ -44,6 +44,6 @@
             <input type="file" step="any" name="avatar" class="form-control-file col-2">
         </div>
                
-        <input type="submit" class="btn btn-success" value="Actualitzar perfil">
+        <input type="submit" class="btn btn-rounded btn-dark-green" value="Actualitzar perfil">
     </form>
 @stop

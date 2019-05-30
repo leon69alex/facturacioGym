@@ -1,19 +1,23 @@
 {!! csrf_field() !!}
-<div class="form-group row">
-    <label class="col-form-label col-sm-1" for="name">Nom:</label>
-    <input type="text" name="name" class="form-control col-2" value="{{ $cuote->name ?? old('name') }}">
+<div class="col-sm-6 offset-sm-3 text-center border-form">
+    <div class="md-form md-outline">
+        <label for="name">Nom</label>
+        <input type="text" name="name" class="form-control" value="{{ $cuote->name ?? old('name') }}">
+    </div>
+    <div class="md-form md-outline">
+        <label for="display_name">Nom complert</label>
+        <input type="text" name="display_name" class="form-control" value="{{ $cuote->display_name ?? old('display_name') }}">
+    </div>
+    <div class="md-form">
+        <input class="form-control" type="number" step="any" name="import" id="import" value="{{ $cuote->import ?? old('import') }}">
+        <label for="import">Import</label>
+    </div>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" name="active" class="custom-control-input" id="defaultChecked2" {{ $cuote->active ? 'checked' : '' }}>
+        <label class="custom-control-label" for="defaultChecked2">Actiu</label>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-rounded btn-dark-green" value="{{ $btnText ?? 'Crear Cuota' }}">
+    <br>
+    <br>
 </div>
-<div class="form-group row">
-    <label class="col-form-label col-sm-1" for="display_name">Nom complert:</label>
-    <input type="text" name="display_name" class="form-control col-2" value="{{ $cuote->display_name ?? old('display_name') }}">
-</div>
-<div class="form-group row">
-    <label class="col-form-label col-sm-1" for="import">Import:</label>
-    <input type="number" step="any" name="import" class="form-control col-2" value="{{ $cuote->import ?? old('import') }}">
-</div>
-<div class="form-group form-check">
-    <input type="checkbox" name="active" class="form-check-input" checked>
-    <label class="form-check-label" for="active">Actiu</label>
-</div>
-
-<input type="submit" class="btn btn-primary" value="Crear cuota">

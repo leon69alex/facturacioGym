@@ -3,7 +3,7 @@
 @section('contingut')
 
     <div>
-        <a class="btn btn-success" href="/remeses/generate-pdf/{{$remesa->id}}"><i class="fas fa-file-pdf"></i> Decarregar PDF</a>
+        <a class="btn btn-rounded btn-dark-green" href="/remeses/generate-pdf/{{$remesa->id}}"><i class="fas fa-file-pdf"></i> Decarregar PDF</a>
     </div>
     <br>
 
@@ -28,7 +28,7 @@
     </table>
     <h2><b style="color:brown">IMPORT TOTAL: {{$import_total}}€</b></h2>
     <div>
-        <a class="btn btn-success" href="/remeses/generate-pdf/{{$remesa->id}}"><i class="fas fa-file-pdf"></i>Decarregar PDF</a>
+        <a class="btn btn-rounded btn-dark-green" href="/remeses/generate-pdf/{{$remesa->id}}"><i class="fas fa-file-pdf"></i>Decarregar PDF</a>
     </div>
 
     

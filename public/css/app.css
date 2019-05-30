@@ -11366,7 +11366,7 @@ a.text-dark:focus {
 }
 
 .switch input:checked + label::before {
-  background-color: #08d;
+  background-color: #8D2727;
 }
 
 .switch input:checked + label::after {
@@ -11527,8 +11527,8 @@ table.dataTable tbody tr {
   box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
 }
 
-.login {
-  height: 50px;
+.btn-rounded {
+  border-radius: 10em;
 }
 
 .logout {
@@ -11556,12 +11556,60 @@ button:active {
 
 .title {
   text-align: center;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 60px;
+  font: 400 100px/1.2 "Merienda One", Helvetica, sans-serif;
+  color: #5A5A5E;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  font-size: calc(1.525rem + 3.3vw);
+  font-weight: bold;
+}
+
+.titol-modal {
+  text-align: center;
+  font-family: "Merienda One", Helvetica, sans-serif;
+  color: #6351ce;
+  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.fa-window-close {
+  color: #8D2727;
+}
+
+.btn-secondary {
+  background-color: #8D2727 !important;
+}
+
+.color-footer {
+  color: #8D2727;
+}
+
+.lila {
+  background-color: #6351ce;
+}
+
+.fixed-action-btn {
+  position: fixed;
+  z-index: 998;
+  right: 35px;
+  bottom: 35px;
+  margin-bottom: 0;
+  padding-top: 15px;
+}
+
+.btn-dark-green {
+  color: white;
 }
 
 .body {
   background-color: linear-gradient(to bottom, #0099cc 0%, #ccffff 100%) !important;
+}
+
+.btn-floating {
+  background-color: #8D2727 !important;
+}
+
+.contacta-color {
+  background-color: #8D2727;
 }
 
 .c-icon {
@@ -11731,5 +11779,69 @@ button:active {
   border-radius: 50%;
   padding: 0;
   cursor: pointer;
+}
+
+.border-form {
+  border: 10px solid #8D2727;
+  border-radius: 5px;
+}
+
+/* Icon 1 */
+
+.animated-icon1 {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  margin: 0px;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.animated-icon1 span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.animated-icon1 span {
+  background: #8D2727;
+}
+
+.animated-icon1 span:nth-child(1) {
+  top: 0px;
+}
+
+.animated-icon1 span:nth-child(2) {
+  top: 10px;
+}
+
+.animated-icon1 span:nth-child(3) {
+  top: 20px;
+}
+
+.animated-icon1.open span:nth-child(1) {
+  top: 11px;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+.animated-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.animated-icon1.open span:nth-child(3) {
+  top: 11px;
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 

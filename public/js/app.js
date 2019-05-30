@@ -36616,17 +36616,24 @@ $(document).ready(function () {
   $(".removeCuote").click(function () {
     Swal.fire({
       title: 'Esta segur que vols eliminar la cuota?',
-      text: "You won't be able to revert this!",
+      text: "No sera possible desfer aquesta acció!",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, eliminar!'
     }).then(function (result) {
       if (result.value) {
         $(".formRemoveCuote").submit();
       }
     });
+  });
+}); //NAVBAR BUTTON TOGGLE
+
+$(document).ready(function () {
+  $('.first-button').on('click', function () {
+    $('.animated-icon1').toggleClass('open');
   });
 });
 

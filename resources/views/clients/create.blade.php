@@ -2,8 +2,9 @@
 
 @section('contingut')
 
-    <h1>Crear nou client</h1>
-
+    <h1 class="title">Crear nou client</h1>
+    <hr>
+    <br>
     <form method="POST" action="{{ route('clients.store') }}">
         @include('clients.form')
     </form>

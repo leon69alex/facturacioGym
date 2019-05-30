@@ -38,6 +38,7 @@ return [
     'digits_between'       => 'El camp :attribute ha de contenir entre :min i :max dígits.',
     'dimensions'           => 'El camp :attribute conté mides incorrectes.',
     'distinct'             => 'El camp :attribute està duplicat.',
+    'dni'                  => 'El :attribute no és correcte',
     'email'                => 'El camp :attribute ha de ser un e-mail vàlid.',
     'exists'               => 'El camp marcat :attribute no és vàlid.',
     'file'                 => 'El camp :attribute ha de ser un fitxer.',

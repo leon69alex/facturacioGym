@@ -3,7 +3,8 @@
 @section('contingut')
 
 <h1 class="title">INICI</h1>
-
+<hr>
+<br>
 
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
  

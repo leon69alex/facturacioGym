@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="\css\mdb.min.css">
     <link rel="stylesheet" href="\css\app.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
@@ -20,10 +21,13 @@
       } 
     ?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="{{route('home')}}">Gimnàs Palace</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-dark lila" id="top-section">
+        <a class="navbar-brand" href="{{route('home')}}">
+          <img src="/storage/images/logo.png" class="avatar" width="40" height="40" alt="">
+            Gimnàs Palace
+        </a>
+        <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="animated-icon1"><span></span><span></span><span></span></div>
         </button>
       
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -51,20 +55,20 @@
             @endif
           </ul>
           @if(!auth()->check())
-          <span class="navbar-text" style="padding-right:3%">
-            <button class="btn btn-success login">
+          <span>
+            <button class="btn btn-rounded btn-dark-green navbar-text">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#modalLoginForm"><i class="fas fa-sign-in-alt"></i> Accedir</a>
             </button>
             
           </span>
 
           @else
-          <ul class="navbar-nav ml-auto mr-5" style="padding-right:3%">
+          <ul class="navbar-nav mr-5" style="padding-right:3%">
 
                 @if(empty(auth()->user()->password))
-                  <img src="{{auth()->user()->avatar}}" class="avatar" width="30" height="30" alt="">
+                  <img src="{{auth()->user()->avatar}}" class="avatar" width="40" height="40" alt="">
                 @else
-                  <img src="/storage/{{auth()->user()->avatar}}" class="avatar" width="30" height="30" alt="">
+                  <img src="/storage/{{auth()->user()->avatar}}" class="avatar" width="40" height="40" alt="">
                 @endif
                 <li class="nav-item dropdown ">
                 
@@ -73,7 +77,7 @@
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href=" /users/profile/{{ auth()->id() }}">Perfil</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <!--<a class="dropdown-item" href="#">Another action</a>-->
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout">
                           <button type="submit" class="btn btn-danger logout">
@@ -111,11 +115,11 @@
                         </div>
                       </div>
                       <div class="modal-footer d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success" id="login">Accedir</button>
+                        <button type="submit" class="btn btn-rounded btn-dark-green" id="login">Accedir</button>
                       </div>
                       <div class="modal-footer d-flex justify-content-center">
                         <a href="#" href="#" data-toggle="modal" data-target="#modalRegisterForm">
-                            <button type="button" class="btn btn-success" id="register">Registra't</button>
+                            <button type="button" class="btn btn-rounded btn-dark-green" id="register">Registra't</button>
                         </a> 
                       </div>
                       <div class="modal-footer d-flex justify-content-around">
@@ -170,7 +174,7 @@
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                      <button type="submit" class="btn btn-success" id="register">Registrar-me</button>
+                      <button type="submit" class="btn btn-rounded btn-dark-green" id="register">Registrar-me</button>
                     </div>
                   </div>
                 </div>
@@ -210,22 +214,6 @@
           <h6 class="mb-0">Connecteu-vos amb nosaltres a les xarxes socials!</h6>
         </div>
         <!-- Grid column -->
-
-
-
-
-
-
-
-
-
-        
-        
-
-
-
-
-
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-7 text-center text-md-right">
@@ -274,7 +262,7 @@
       <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
         <!-- Content -->
-        <h6 class="text-uppercase font-weight-bold">Gimnàs Palace</h6>
+        <h6 class="text-uppercase font-weight-bold color-footer">Gimnàs Palace</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>El teu gimnàs de referència al centre de Figueres!</p>
 
@@ -286,7 +274,7 @@
       <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
         <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Contactan's</h6>
+        <h6 class="text-uppercase font-weight-bold color-footer">Contactan's</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
           <i class="fas fa-home mr-3"></i> C/ Oliva, 10. 17762 Figueres</p>
@@ -313,6 +301,12 @@
   <!-- Copyright -->
 
 </footer>
+
+<div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;">
+  <a href="#top-section" class="btn-floating btn-large">
+    <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
 <!-- Footer -->    
 <script type="text/javascript">
   $(document).ready(function(){

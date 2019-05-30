@@ -6,7 +6,9 @@
 <section class="my-5">
 
         <!-- Section heading -->
-        <h2 class="h1-responsive font-weight-bold text-center my-5">CONTACTAN'S</h2>      
+        <h1 class="text-center my-5 title">CONTACTAN'S</h1>  
+        <hr>
+        <br>    
         <!-- Grid row -->
         <div class="row">
       
@@ -17,7 +19,7 @@
             <div class="card">
               <div class="card-body">
                 <!-- Header -->
-                <div class="form-header blue accent-1">
+                <div class="form-header contacta-color">
                   <h3 class="mt-2"><i class="fas fa-envelope"></i> Escriu-nos:</h3>
                 </div>
                 <p class="dark-grey-text">La teva opinió ens ajuda a millorar el nostre servei</p>
@@ -63,27 +65,27 @@
             <!-- Buttons-->
             <div class="row text-center">
               <div class="col-md-3">
-                <a class="btn-floating blue accent-1">
+                <a class="btn-floating color-footer">
                   <i class="fas fa-map-marker-alt"></i>
                 </a>
                 <p>C/ Sant Pere, 5 17762</p>
                 <p class="mb-md-0">Figueres</p>
               </div>
               <div class="col-md-3">
-                <a class="btn-floating blue accent-1">
+                <a class="btn-floating color-footer">
                   <i class="fas fa-phone"></i>
                 </a>
                 <p>972 524 552</p>
               </div>
               <div class="col-md-3">
-                <a class="btn-floating blue accent-1">
+                <a class="btn-floating color-footer">
                   <i class="fas fa-envelope"></i>
                 </a>
                 <p>info@gimnaspalace.me</p>
                 
               </div>
               <div class="col-md-3">
-                    <a class="btn-floating blue accent-1">
+                    <a class="btn-floating color-footer">
                         <i class="far fa-calendar-alt"></i>
                     </a>
                     <p>HORARI: DILL - DIV 7AM - 22.30PM, DISS - 9AM - 14PM, DIU - TANCAT</p>

@@ -12,7 +12,7 @@
     </div>
 
 @endif
-<a class="btn btn-success" href="{{ route('cuotes.create') }}"><i class="fas fa-plus-square"></i>  Nova cuota</a>
+<a class="btn btn-rounded btn-dark-green" href="{{ route('cuotes.create') }}"><i class="fas fa-plus-square"></i>  Nova cuota</a>
 <br>
 <br>
 <table class="table table-dark">

@@ -7,6 +7,16 @@
 @section('contingut')
 
     @if(session()->has('info'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('info') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+    @endif
+
+    @if(session()->has('errors'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('info') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -18,13 +28,13 @@
 
     <div class="d-flex justify-content-between">
         <div>
-            <a class="btn btn-success" href="{{ route('clients.create') }}"><i class="fas fa-plus-square"></i> Nou Client</a>
-            <a class="btn btn-success" href="importClients"><i class="fas fa-file-excel"></i> Importar massivament</a>
+            <a class="btn btn-rounded btn-dark-green" href="{{ route('clients.create') }}"><i class="fas fa-plus-square"></i> Nou Client</a>
+            <a class="btn btn-rounded btn-dark-green" href="importClients"><i class="fas fa-file-excel"></i> Importar massivament</a>
 
         </div>
     </div>
-
-    <br>
+    
+    <hr>
     <table class="table-sm table-dark table-striped table-hover" id="dataTable" >
         <thead>
             <th>ID</th>
