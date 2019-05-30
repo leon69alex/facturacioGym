@@ -41,7 +41,7 @@ class CuotesController extends Controller
 
         $cuotes = Cuote::all();
         
-        return view('cuotes.index', compact('cuotes'))->with('info', 'Cuota creada correctament');
+        return view('cuotes.index', compact('cuotes'))->with('info', 'Quota creada correctament');
     }
 
     /**
@@ -81,7 +81,7 @@ class CuotesController extends Controller
 
         $cuote->update($request->all());
 
-        return redirect()->route('cuotes.index')->with('info', 'La cuota s\'ha actualitzat correctament');
+        return redirect()->route('cuotes.index')->with('info', 'La quota s\'ha actualitzat correctament');
     }
 
     /**
@@ -96,6 +96,6 @@ class CuotesController extends Controller
 
         $cuote->delete();
 
-        return redirect()->route('cuotes.index')->with('info', 'La cuota s\'ha eliminat correctament');
+        return redirect()->route('cuotes.index')->with('info', 'La quota s\'ha eliminat correctament');
     }
 }

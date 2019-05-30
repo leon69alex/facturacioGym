@@ -38,7 +38,7 @@ return [
     |
     | Here you can specify default model namespace when creating BREAD.
     | Must include trailing backslashes. If not defined the default application
-    | namespace will be used.
+    | namespace will be used.7
     |
     */
 
@@ -105,7 +105,7 @@ return [
         /*
          * Select default language
          */
-        'default' => 'es',
+        'default' => 'en',
 
         /*
          * Select languages that are supported.

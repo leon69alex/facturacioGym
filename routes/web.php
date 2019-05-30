@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 //AUTENTICACIÓ
 Auth::routes(['verify' => true]);
 Route::get('logout', 'Auth\LoginController@logout');
@@ -22,22 +11,32 @@ Route::get('contacta', 'HomeController@contacta')->name('contacta');
 
 
 
-/*FACTURACIÓ*/
-//CLIENTS
-Route::resource('clients', 'ClientsController')->middleware(['auth', 'roles:admin,mod']);
-Route::get('clients/send/email/{id}', 'ClientsController@sendEmailImpagament')->middleware(['auth', 'roles:admin,mod']); //ENVIAR CORREU DE IMPAGAMENT//
-Route::post('clients/ajaxRequest', 'ClientsController@switchClients')->middleware(['auth', 'roles:admin,mod']);
+/******FACTURACIÓ******/
+/*CLIENTS*/
+//A les rutes d'aquest grup nomès hi podràn accedir els usuaris que tinguin rols de administrador o moderador
+Route::middleware(['auth', 'roles:admin,mod'])->group(function () {
+
+    Route::resource('clients', 'ClientsController');
+    Route::get('clients/send/email/{id}', 'ClientsController@sendEmailImpagament'); //ENVIAR CORREU DE IMPAGAMENT//
+    Route::post('clients/ajaxRequest', 'ClientsController@switchClients');
+
+});
 Route::get('importClients', 'ClientsController@importClients')->middleware(['auth', 'roles:admin']);
 
 
-//CUOTES
+/*CUOTES*/
+//Amb una sola línia de codi fem totes les rutes del CRUD
 Route::resource('cuotes', 'CuotesController')->middleware(['auth', 'roles:admin,mod']);
-//Route::get('/search','ClientsController@search');
 
-//REMESES
-Route::get('remeses', 'RemesesController@index')->middleware(['auth', 'roles:admin,mod']);
-Route::get('remeses/show/{id}', 'RemesesController@show')->middleware(['auth', 'roles:admin,mod']);
-Route::get('remeses/generate', 'RemesesController@generate')->middleware(['auth', 'roles:admin']);
+/*REMESES*/
+//A les rutes d'aquest grup nomès hi podràn accedir els usuaris que tinguin rols de administrador o moderador
+Route::middleware(['auth', 'roles:admin,mod'])->group(function () {
+
+    Route::get('remeses', 'RemesesController@index')->middleware(['auth', 'roles:admin,mod']);
+    Route::get('remeses/show/{id}', 'RemesesController@show')->middleware(['auth', 'roles:admin,mod']);
+    Route::get('remeses/generate', 'RemesesController@generate')->middleware(['auth', 'roles:admin']);
+
+});
 Route::get('remeses/generate-pdf/{id}','RemesesController@generatePDF')->middleware(['auth', 'roles:admin']);
 
 
@@ -53,7 +52,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('users/profile/{id}', [
     'as' => 'users.profile',
     'uses' => 'UsersController@edit'
-    ]);
+    ])->middleware('auth');
 
 Route::put('users/profile/{id}', [
     'as' => 'users.update',
@@ -70,31 +69,9 @@ Route::get('users/planning/{id}', function(){
 Route::get('login/google', 'Auth\LoginController@redirectToGoogle');
 Route::get('login/google/callback', 'Auth\LoginController@handleGoogleCallback');
 
-//GOOGLE OAUTH ==> SOCIALITE
+//GITHUB OAUTH ==> SOCIALITE
 Route::get('login/github', 'Auth\LoginController@redirectToGithub');
 Route::get('login/github/callback', 'Auth\LoginController@handleGithubCallback');
-
-
-
-//Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-
-//Route::get('/home', 'HomeController@index')->name('home');
-
-//Route::post('login', 'Auth\LoginController@login');
-
-/*Route::post('login', function(){
-    return "HOLA";
-});*/
-
-
-
-/* Route::get('/serverSide', [
-    'uses' => function () {
-        $users = App\Client::all();
-        dd($users);
-        return Datatables::of($users)->make();
-    }
-])->name('serverSide'); */
 
 
 //CREAR CLIENTS MASSIVAMENT DE PROVA.

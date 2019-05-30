@@ -42,7 +42,7 @@
             <th>Cognoms</th>
             <th>Email</th>
             <th>DNI</th>
-            <th>Cuota</th>
+            <th>Quota</th>
             <th>IBAN</th>
             <th>SWIFT</th>
             <th>Actiu</th>

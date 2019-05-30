@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="\css\mdb.min.css">
     <link rel="stylesheet" href="\css\app.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
@@ -21,7 +21,7 @@
       } 
     ?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark lila" id="top-section">
+    <nav class="navbar navbar-expand-lg navbar-dark teal darken-4" id="top-section">
         <a class="navbar-brand" href="{{route('home')}}">
           <img src="/storage/images/logo.png" class="avatar" width="40" height="40" alt="">
             Gimnàs Palace
@@ -48,7 +48,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href=" {{route('clients.index')}} ">Clients</a>
-                  <a class="dropdown-item" href=" {{route('cuotes.index')}} ">Cuotes</a>
+                  <a class="dropdown-item" href=" {{route('cuotes.index')}} ">Quotes</a>
                   <a class="dropdown-item" href="/remeses">Remeses</a>
                 </div>
               </li>
@@ -203,7 +203,7 @@
     <!-- Footer -->
 <footer class="page-footer font-small unique-color-dark fixed">
 
-  <div style="background-color: #6351ce;">
+  <div class="teal darken-4">
     <div class="container">
 
       <!-- Grid row-->

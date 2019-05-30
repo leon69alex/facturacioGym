@@ -23,7 +23,7 @@
         {!! $errors->first('dni', '<span class=form-error>:message</span>') !!}
     </div>
     <div class="form-group">
-        <label class="col-form-label" for="cuote_id">Cuota</label>
+        <label class="col-form-label" for="cuote_id">Quota</label>
         <select class="custom-select" name="cuote_id" selected="{{ $client->cuote_id ?? old('cuote_id') }}">
             @foreach($cuotes as $cuote)
 

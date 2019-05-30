@@ -11373,7 +11373,7 @@ a.text-dark:focus {
 }
 
 .switch input:checked + label::before {
-  background-color: #8D2727;
+  background-color: #80cbc4;
 }
 
 .switch input:checked + label::after {
@@ -11561,33 +11561,29 @@ button:active {
   margin-bottom: 15px;
 }
 
+hr {
+  background-color: #004d40;
+}
+
 .title {
   text-align: center;
-  font: 400 100px/1.2 "Merienda One", Helvetica, sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #5A5A5E;
-  text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
-  font-size: calc(1.525rem + 3.3vw);
-  font-weight: bold;
 }
 
 .titol-modal {
   text-align: center;
-  font-family: "Merienda One", Helvetica, sans-serif;
-  color: #6351ce;
+  font-family: "Raleway", sans-serif;
+  color: #004d40;
   text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
-  font-weight: bold;
 }
 
 .fa-window-close {
-  color: #8D2727;
+  color: #004d40;
 }
 
 .btn-secondary {
-  background-color: #8D2727 !important;
-}
-
-.color-footer {
-  color: #8D2727;
+  background-color: #004d40 !important;
 }
 
 .lila {
@@ -11612,11 +11608,11 @@ button:active {
 }
 
 .btn-floating {
-  background-color: #8D2727 !important;
+  background-color: #004d40 !important;
 }
 
 .contacta-color {
-  background-color: #8D2727;
+  background-color: #004d40;
 }
 
 .c-icon {
@@ -11789,7 +11785,7 @@ button:active {
 }
 
 .border-form {
-  border: 10px solid #8D2727;
+  border: 5px solid #004d40;
   border-radius: 5px;
 }
 
@@ -11820,7 +11816,7 @@ button:active {
 }
 
 .animated-icon1 span {
-  background: #8D2727;
+  background: white;
 }
 
 .animated-icon1 span:nth-child(1) {
@@ -11850,5 +11846,9 @@ button:active {
   top: 11px;
   -webkit-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+
+.deep-purple.accent-2 {
+  background-color: #004d40 !important;
 }
 

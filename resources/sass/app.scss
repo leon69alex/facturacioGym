@@ -81,7 +81,7 @@
   transition: 0.2s all;
 }
 .switch input:checked + label::before {
-  background-color: #8D2727;
+  background-color: #80cbc4;
 }
 .switch input:checked + label::after {
   margin-left: calc(2.375rem * .8);
@@ -260,37 +260,35 @@ table.dataTable tbody tr {
   margin-bottom: 15px;
 }
 
+hr{
+  background-color: #004d40;
+}
+
 //TITOL
 .title{
   text-align: center;
-  font: 400 100px/1.2 'Merienda One', Helvetica, sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: #5A5A5E;
-  text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
-  font-size: calc(1.525rem + 3.3vw);
-  font-weight: bold;
+  //text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  //font-size: calc(1.525rem + 3.3vw);
   //font-size: 60px;
   
 }
 
 .titol-modal{
   text-align: center;
-  font-family: 'Merienda One', Helvetica, sans-serif;
-  color: #6351ce;
+  font-family: 'Raleway', sans-serif;
+  color: #004d40;
   text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
   //font-size: calc(0.5rem + 0.5vw);
-  font-weight: bold;
 }
 
 .fa-window-close{
-  color: #8D2727;
+  color: #004d40;
 }
 
 .btn-secondary{
-  background-color: #8D2727 !important;
-}
-
-.color-footer{
-  color: #8D2727;
+  background-color: #004d40 !important;
 }
 
 
@@ -317,11 +315,11 @@ table.dataTable tbody tr {
 }
 
 .btn-floating{
-  background-color: #8D2727 !important;
+  background-color: #004d40 !important;
 }
 
 .contacta-color{
-  background-color: #8D2727;
+  background-color: #004d40;
 }
 
 
@@ -469,7 +467,7 @@ table.dataTable tbody tr {
 }
 
 .border-form{
-  border: 10px solid #8D2727;
+  border: 5px solid #004d40;
   border-radius: 5px;
 }
 
@@ -511,7 +509,7 @@ table.dataTable tbody tr {
   }
   
   .animated-icon1 span {
-  background: #8D2727;
+  background: white;
   }
   
   
@@ -547,3 +545,7 @@ table.dataTable tbody tr {
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
   }
+
+  .deep-purple.accent-2 {
+    background-color: #004d40!important;
+}

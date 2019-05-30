@@ -6,11 +6,11 @@
 <hr>
 <br>
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide carousel-fade" data-ride="carousel">
  
   <ol class="carousel-indicators">
     @foreach( $images as $image )
-      <li data-target="#carouselExampleIndicators" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+      <li data-target="#carouselExampleControls" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
     @endforeach
   </ol>
   

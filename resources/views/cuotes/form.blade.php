@@ -13,11 +13,11 @@
         <label for="import">Import</label>
     </div>
     <div class="custom-control custom-checkbox">
-        <input type="checkbox" name="active" class="custom-control-input" id="defaultChecked2" {{ $cuote->active ? 'checked' : '' }}>
+        <input type="checkbox" name="active" class="custom-control-input" id="defaultChecked2" checked>
         <label class="custom-control-label" for="defaultChecked2">Actiu</label>
     </div>
     <br>
-    <input type="submit" class="btn btn-rounded btn-dark-green" value="{{ $btnText ?? 'Crear Cuota' }}">
+    <input type="submit" class="btn btn-rounded btn-dark-green" value="{{ $btnText ?? 'Crear Quota' }}">
     <br>
     <br>
 </div>

@@ -11,7 +11,7 @@
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Cuota</th>
+                <th>Quota</th>
                 <th>Import</th>
             </tr>
         </thead>

@@ -43,7 +43,7 @@ $(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
 $(document).ready(function() {
     $(".removeCuote").click(function(){
         Swal.fire({
-            title: 'Esta segur que vols eliminar la cuota?',
+            title: 'Esta segur que vols eliminar la quota?',
             text: "No sera possible desfer aquesta acció!",
             type: 'warning',
             showCancelButton: true,
