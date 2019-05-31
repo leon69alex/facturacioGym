@@ -6,7 +6,9 @@
     <hr>
     <br>
     <form method="POST" action="{{ route('clients.store') }}">
-        @include('clients.form')
+        @include('clients.form', [
+            'client' => new App\Client
+            ])
     </form>
 @stop
 

@@ -98,8 +98,12 @@ class ClientsController extends Controller
         if($request->has('active'))
         {
             $request['active'] = true;
+        } else{
+            $client->active = false;
         }
         
+        //dd($request['active']);
+
         $client->update($request->all());
 
         return redirect()->route('clients.index')->with('info', 'El client s\'ha actualitzat correctament');

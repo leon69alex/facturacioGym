@@ -50,7 +50,7 @@
 
 
     <div class="form-group form-check">
-        <input type="checkbox" name="active" class="form-check-input" checked>
+        <input type="checkbox" name="active" class="form-check-input" {{ $client->active ? 'checked' : '' }}>
         <label class="form-check-label" for="active">Actiu</label>
     </div>
     <input type="submit" class="btn btn-rounded btn-dark-green" value="{{ $btnText ?? 'Crear Client' }}">

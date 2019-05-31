@@ -6,7 +6,9 @@
     <hr>
     <br>
     <form method="POST" action=" {{route('cuotes.store')}} ">
-        @include('cuotes.form')
+        @include('cuotes.form', [
+            'cuote' => new App\Cuote
+            ])
     </form>
 
 @stop

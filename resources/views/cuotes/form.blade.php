@@ -13,8 +13,8 @@
         <label for="import">Import</label>
     </div>
     <div class="custom-control custom-checkbox">
-        <input type="checkbox" name="active" class="custom-control-input" id="defaultChecked2" checked>
-        <label class="custom-control-label" for="defaultChecked2">Actiu</label>
+        <input type="checkbox" name="active" class="custom-control-input" id="active" {{ $cuote->active ? 'checked' : '' }}>
+        <label class="custom-control-label" for="active">Actiu</label>
     </div>
     <br>
     <input type="submit" class="btn btn-rounded btn-dark-green" value="{{ $btnText ?? 'Crear Quota' }}">
