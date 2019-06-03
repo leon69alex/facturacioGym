@@ -19,6 +19,14 @@
 @import  url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css');
 @import 'social_login';
 
+
+
+
+//VARIABLES
+$custom-verd: #004d40;
+
+//END_VARIABLES
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -261,7 +269,7 @@ table.dataTable tbody tr {
 }
 
 hr{
-  background-color: #004d40;
+  background-color: $custom-verd;
 }
 
 //TITOL
@@ -278,17 +286,17 @@ hr{
 .titol-modal{
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  color: #004d40;
+  color: $custom-verd;
   text-shadow: 4px 4px 0px rgba(0,0,0,0.1);
   //font-size: calc(0.5rem + 0.5vw);
 }
 
 .fa-window-close{
-  color: #004d40;
+  color: $custom-verd;
 }
 
 .btn-secondary{
-  background-color: #004d40 !important;
+  background-color: $custom-verd !important;
 }
 
 
@@ -315,11 +323,11 @@ hr{
 }
 
 .btn-floating{
-  background-color: #004d40 !important;
+  background-color: $custom-verd !important;
 }
 
 .contacta-color{
-  background-color: #004d40;
+  background-color: $custom-verd;
 }
 
 
@@ -467,7 +475,7 @@ hr{
 }
 
 .border-form{
-  border: 5px solid #004d40;
+  border: 5px solid $custom-verd;
   border-radius: 5px;
 }
 
@@ -547,5 +555,5 @@ hr{
   }
 
   .deep-purple.accent-2 {
-    background-color: #004d40!important;
+    background-color: $custom-verd !important;
 }

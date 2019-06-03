@@ -20,19 +20,19 @@
             {!! method_field('PUT') !!}
             {!! csrf_field() !!}
             <div class="md-form md-outline">
-                <label for="name">Nom:</label>
+                <label for="name">Nom</label>
                 <input type="text" name="name" class="form-control" value="{{ $user->name ?? old('name') }}">
             </div>
             <div class="md-form md-outline">
-                <label for="surnames">Cognoms:</label>
+                <label for="surnames">Cognoms</label>
                 <input type="text" name="surnames" class="form-control" value="{{ $user->surnames ?? old('surnames') }}">
             </div>
             <div class="md-form md-outline">
-                <label for="email">Email:</label>
+                <label for="email">Email</label>
                 <input type="text" name="email" class="form-control" value="{{ $user->email ?? old('email') }}">
             </div>
             <div class="md-form md-outline">
-                <label for="password">Password:</label>
+                <label for="password">Password</label>
                 <input type="password" name="password" class="form-control">
             </div>
 
