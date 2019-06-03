@@ -114,7 +114,7 @@
 
 @section('javascript')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/jquery.dataTables.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     
     <script src="\js\DataTables\customDatatables.js"></script>
